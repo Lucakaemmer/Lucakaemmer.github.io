@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/kaemmer/Documents/Academia/PhD/_re_vision_initiative/website/code/revision/**)",
+      "WebFetch(domain:psulewski.github.io)",
+      "WebFetch(domain:scholar.google.com)",
+      "WebFetch(domain:bsky.app)",
+      "Bash(git -C /Users/kaemmer/Documents/Academia/website/Lucakaemmer.github.io log --oneline -10)",
+      "WebFetch(domain:visjs.github.io)"
+    ]
+  }
+}
