@@ -101,32 +101,4 @@ document.addEventListener('DOMContentLoaded', function () {
     new vis.Network(container, { nodes, edges }, options);
   }
 
-  // ============================================================
-  // Active nav link via IntersectionObserver
-  // ============================================================
-  const sections  = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.nav-links a');
-
-  if ('IntersectionObserver' in window && navLinks.length > 0) {
-    const navHeight = parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--nav-height')
-    ) || 60;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach(link => {
-              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-            });
-          }
-        });
-      },
-      { rootMargin: `-${navHeight}px 0px -50% 0px` }
-    );
-
-    sections.forEach(s => observer.observe(s));
-  }
-
 });

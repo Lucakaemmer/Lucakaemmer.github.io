@@ -227,9 +227,6 @@ h1, h2, h3, h4 {
 /* ============================================================
    Sections (shared)
    ============================================================ */
-section[id] {
-  scroll-margin-top: calc(var(--nav-height) + 16px);
-}
 
 .section {
   border-bottom: 1px solid var(--border);
