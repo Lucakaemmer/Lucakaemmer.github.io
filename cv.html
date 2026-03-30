@@ -11,145 +11,168 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="layout">
 
-  <!-- Navigation -->
-  <header id="site-nav">
-    <nav class="nav-inner">
-      <a href="index.html" class="nav-logo">LK</a>
-      <ul class="nav-links">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-profile">
+      <img src="image.png" alt="Luca Kämmer" class="sidebar-photo">
+      <div>
+        <h1 class="sidebar-name">Luca Kämmer</h1>
+        <p class="sidebar-title">PhD Student · Computational Neuroscience</p>
+        <div class="sidebar-affiliations">
+          <span>Max Planck Institute CBS</span>
+          <span>Justus-Liebig-Universität Gießen</span>
+          <span>Humboldt University Berlin</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <nav class="sidebar-nav">
+      <ul>
         <li><a href="index.html">About</a></li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="cv.html" class="active">CV</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-  </header>
 
-  <main>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-links">
+      <a href="mailto:lucakaemmer@gmx.de" class="sidebar-link">Email</a>
+      <a href="https://scholar.google.com/citations?user=UzZ-Sy4AAAAJ&hl=en" class="sidebar-link" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://bsky.app/profile/lucakaemmer.bsky.social" class="sidebar-link" target="_blank" rel="noopener">Bluesky</a>
+      <a href="CV_2025_LucaK%C3%A4mmer.pdf" class="sidebar-link sidebar-link--cta" download>Download CV</a>
+    </div>
+
+    <div class="sidebar-spacer"></div>
+    <p class="sidebar-footer">Luca Kämmer &copy; 2025</p>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
     <section class="section">
-      <div class="section-inner">
-        <h2 class="section-title">CV</h2>
-        <a href="CV_2025_LucaK%C3%A4mmer.pdf" class="btn btn--primary" download>Download Full CV</a>
+      <h2 class="section-title">CV</h2>
+      <a href="CV_2025_LucaK%C3%A4mmer.pdf" class="btn btn--primary" download>Download Full CV</a>
 
-        <div class="cv-grid">
+      <div class="cv-grid">
 
-          <div class="cv-block">
-            <h3 class="cv-block-title">Education</h3>
-            <ul class="cv-list">
-              <li class="cv-item">
-                <span class="cv-date">2023–</span>
-                <div class="cv-details">
-                  <strong>PhD, Computational Neuroscience</strong><br>
-                  MPI CBS / JLU Gießen / HU Berlin
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2020–2023</span>
-                <div class="cv-details">
-                  <strong>MSc Neuroscience (SCAN)</strong><br>
-                  Freie Universität Berlin
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2016–2019</span>
-                <div class="cv-details">
-                  <strong>BSc Psychology</strong><br>
-                  Maastricht University
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2018–2019</span>
-                <div class="cv-details">
-                  <strong>Exchange Semester</strong><br>
-                  Universidad de Sevilla
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="cv-block">
-            <h3 class="cv-block-title">Research Experience</h3>
-            <ul class="cv-list">
-              <li class="cv-item">
-                <span class="cv-date">2023–</span>
-                <div class="cv-details">
-                  <strong>PhD Researcher</strong><br>
-                  MPI CBS, Leipzig
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2025</span>
-                <div class="cv-details">
-                  <strong>Lab Exchange</strong><br>
-                  University of Osnabrück
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2023</span>
-                <div class="cv-details">
-                  <strong>Data Analyst</strong><br>
-                  Oxford &amp; Glasgow Universities
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2022</span>
-                <div class="cv-details">
-                  <strong>Research Intern</strong><br>
-                  CCN Berlin (Prof. Blankenburg)
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2021–2022</span>
-                <div class="cv-details">
-                  <strong>Research Assistant</strong><br>
-                  Charité Berlin
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2020</span>
-                <div class="cv-details">
-                  <strong>Research Intern</strong><br>
-                  University of British Columbia
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="cv-block">
-            <h3 class="cv-block-title">Scholarships &amp; Funding</h3>
-            <ul class="cv-list">
-              <li class="cv-item">
-                <span class="cv-date">2024–2027</span>
-                <div class="cv-details">
-                  <strong>PhD Scholarship</strong><br>
-                  Studienstiftung des deutschen Volkes
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2023–2024</span>
-                <div class="cv-details">
-                  <strong>Orientational Scholarship</strong><br>
-                  Max Planck Institute CBS
-                </div>
-              </li>
-              <li class="cv-item">
-                <span class="cv-date">2016–2023</span>
-                <div class="cv-details">
-                  <strong>Student Scholarship</strong><br>
-                  Studienstiftung des deutschen Volkes
-                </div>
-              </li>
-            </ul>
-          </div>
-
+        <div class="cv-block">
+          <h3 class="cv-block-title">Education</h3>
+          <ul class="cv-list">
+            <li class="cv-item">
+              <span class="cv-date">2023–</span>
+              <div class="cv-details">
+                <strong>PhD, Computational Neuroscience</strong><br>
+                MPI CBS / JLU Gießen / HU Berlin
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2020–2023</span>
+              <div class="cv-details">
+                <strong>MSc Neuroscience (SCAN)</strong><br>
+                Freie Universität Berlin
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2016–2019</span>
+              <div class="cv-details">
+                <strong>BSc Psychology</strong><br>
+                Maastricht University
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2018–2019</span>
+              <div class="cv-details">
+                <strong>Exchange Semester</strong><br>
+                Universidad de Sevilla
+              </div>
+            </li>
+          </ul>
         </div>
+
+        <div class="cv-block">
+          <h3 class="cv-block-title">Research Experience</h3>
+          <ul class="cv-list">
+            <li class="cv-item">
+              <span class="cv-date">2023–</span>
+              <div class="cv-details">
+                <strong>PhD Researcher</strong><br>
+                MPI CBS, Leipzig
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2025</span>
+              <div class="cv-details">
+                <strong>Lab Exchange</strong><br>
+                University of Osnabrück
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2023</span>
+              <div class="cv-details">
+                <strong>Data Analyst</strong><br>
+                Oxford &amp; Glasgow Universities
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2022</span>
+              <div class="cv-details">
+                <strong>Research Intern</strong><br>
+                CCN Berlin (Prof. Blankenburg)
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2021–2022</span>
+              <div class="cv-details">
+                <strong>Research Assistant</strong><br>
+                Charité Berlin
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2020</span>
+              <div class="cv-details">
+                <strong>Research Intern</strong><br>
+                University of British Columbia
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-block">
+          <h3 class="cv-block-title">Scholarships &amp; Funding</h3>
+          <ul class="cv-list">
+            <li class="cv-item">
+              <span class="cv-date">2024–2027</span>
+              <div class="cv-details">
+                <strong>PhD Scholarship</strong><br>
+                Studienstiftung des deutschen Volkes
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2023–2024</span>
+              <div class="cv-details">
+                <strong>Orientational Scholarship</strong><br>
+                Max Planck Institute CBS
+              </div>
+            </li>
+            <li class="cv-item">
+              <span class="cv-date">2016–2023</span>
+              <div class="cv-details">
+                <strong>Student Scholarship</strong><br>
+                Studienstiftung des deutschen Volkes
+              </div>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>Luca Kämmer &copy; 2025</p>
-  </footer>
-
+</div>
 </body>
 </html>

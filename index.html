@@ -8,89 +8,80 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="layout">
 
-  <!-- Navigation -->
-  <header id="site-nav">
-    <nav class="nav-inner">
-      <a href="index.html" class="nav-logo">LK</a>
-      <ul class="nav-links">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-profile">
+      <img src="image.png" alt="Luca Kämmer" class="sidebar-photo">
+      <div>
+        <h1 class="sidebar-name">Luca Kämmer</h1>
+        <p class="sidebar-title">PhD Student · Computational Neuroscience</p>
+        <div class="sidebar-affiliations">
+          <span>Max Planck Institute CBS</span>
+          <span>Justus-Liebig-Universität Gießen</span>
+          <span>Humboldt University Berlin</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <nav class="sidebar-nav">
+      <ul>
         <li><a href="index.html" class="active">About</a></li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="cv.html">CV</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-  </header>
 
-  <!-- Hero -->
-  <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <h1 class="hero-name">Luca Kämmer</h1>
-        <p class="hero-title">PhD Student · Computational Neuroscience</p>
-        <p class="hero-affiliations">
-          Max Planck Institute CBS &nbsp;|&nbsp;
-          Justus-Liebig-Universität Gießen &nbsp;|&nbsp;
-          Humboldt University Berlin
-        </p>
-        <div class="hero-links">
-          <a href="mailto:lucakaemmer@gmx.de" class="hero-link">Email</a>
-          <a href="https://scholar.google.com/citations?user=UzZ-Sy4AAAAJ&hl=en" class="hero-link" target="_blank" rel="noopener">Google Scholar</a>
-          <a href="https://bsky.app/profile/lucakaemmer.bsky.social" class="hero-link" target="_blank" rel="noopener">Bluesky</a>
-          <a href="CV_2025_LucaK%C3%A4mmer.pdf" class="hero-link hero-link--cta" download>Download CV</a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <img src="image.png" alt="Luca Kämmer" class="hero-img">
-      </div>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-links">
+      <a href="mailto:lucakaemmer@gmx.de" class="sidebar-link">Email</a>
+      <a href="https://scholar.google.com/citations?user=UzZ-Sy4AAAAJ&hl=en" class="sidebar-link" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://bsky.app/profile/lucakaemmer.bsky.social" class="sidebar-link" target="_blank" rel="noopener">Bluesky</a>
+      <a href="CV_2025_LucaK%C3%A4mmer.pdf" class="sidebar-link sidebar-link--cta" download>Download CV</a>
     </div>
-  </section>
 
-  <main>
+    <div class="sidebar-spacer"></div>
+    <p class="sidebar-footer">Luca Kämmer &copy; 2025</p>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
     <section class="section">
-      <div class="section-inner">
-        <h2 class="section-title">About</h2>
-        <div class="about-grid">
-          <div class="about-text">
-            <p>
-              I am a PhD student in computational neuroscience at the
-              <a href="https://www.cbs.mpg.de/" target="_blank" rel="noopener">Max Planck Institute for Human Cognitive and Brain Sciences</a>
-              in Leipzig. I work in the
-              <a href="https://hebartlab.com/" target="_blank" rel="noopener">Vision &amp; Computational Cognition Lab</a>
-              (Prof. Dr. Martin Hebart) in close collaboration with Prof. Dr. Martin Rolfs.
-            </p>
-            <p>
-              My research focuses on the interplay between <strong>eye movements</strong> and
-              <strong>object representations</strong> in the brain. I combine behavioural experiments,
-              neuroimaging (fMRI &amp; MEG), and computational modelling to understand how the visual
-              system processes information across saccades.
-            </p>
-            <div class="tag-group">
-              <span class="tag">Visual Perception</span>
-              <span class="tag">Neuroimaging</span>
-              <span class="tag">Eye Movements</span>
-              <span class="tag">Machine Learning</span>
-              <span class="tag">De-/Encoding Models</span>
-              <span class="tag">Vision-Language Models</span>
-            </div>
-          </div>
-          <div class="about-network">
-            <h3 class="subsection-title">Co-author Network</h3>
-            <div id="coauthor-graph"></div>
-          </div>
+      <h2 class="section-title">About</h2>
+      <div class="about-text">
+        <p>
+          I am a PhD student in computational neuroscience at the
+          <a href="https://www.cbs.mpg.de/" target="_blank" rel="noopener">Max Planck Institute for Human Cognitive and Brain Sciences</a>
+          in Leipzig. I work in the
+          <a href="https://hebartlab.com/" target="_blank" rel="noopener">Vision &amp; Computational Cognition Lab</a>
+          (Prof. Dr. Martin Hebart) in close collaboration with Prof. Dr. Martin Rolfs.
+        </p>
+        <p>
+          My research focuses on the interplay between <strong>eye movements</strong> and
+          <strong>object representations</strong> in the brain. I combine behavioural experiments,
+          neuroimaging (fMRI &amp; MEG), and computational modelling to understand how the visual
+          system processes information across saccades.
+        </p>
+        <div class="tag-group">
+          <span class="tag">Visual Perception</span>
+          <span class="tag">Neuroimaging</span>
+          <span class="tag">Eye Movements</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">De-/Encoding Models</span>
+          <span class="tag">Vision-Language Models</span>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>Luca Kämmer &copy; 2025</p>
-  </footer>
-
-  <script src="script.js"></script>
+</div>
 </body>
 </html>

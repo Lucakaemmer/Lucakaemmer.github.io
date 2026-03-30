@@ -11,23 +11,51 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="layout">
 
-  <!-- Navigation -->
-  <header id="site-nav">
-    <nav class="nav-inner">
-      <a href="index.html" class="nav-logo">LK</a>
-      <ul class="nav-links">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-profile">
+      <img src="image.png" alt="Luca Kämmer" class="sidebar-photo">
+      <div>
+        <h1 class="sidebar-name">Luca Kämmer</h1>
+        <p class="sidebar-title">PhD Student · Computational Neuroscience</p>
+        <div class="sidebar-affiliations">
+          <span>Max Planck Institute CBS</span>
+          <span>Justus-Liebig-Universität Gießen</span>
+          <span>Humboldt University Berlin</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <nav class="sidebar-nav">
+      <ul>
         <li><a href="index.html">About</a></li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="cv.html">CV</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
-  </header>
 
-  <main>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-links">
+      <a href="mailto:lucakaemmer@gmx.de" class="sidebar-link">Email</a>
+      <a href="https://scholar.google.com/citations?user=UzZ-Sy4AAAAJ&hl=en" class="sidebar-link" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://bsky.app/profile/lucakaemmer.bsky.social" class="sidebar-link" target="_blank" rel="noopener">Bluesky</a>
+      <a href="CV_2025_LucaK%C3%A4mmer.pdf" class="sidebar-link sidebar-link--cta" download>Download CV</a>
+    </div>
+
+    <div class="sidebar-spacer"></div>
+    <p class="sidebar-footer">Luca Kämmer &copy; 2025</p>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
     <section class="section">
-      <div class="section-inner contact-inner">
+      <div class="contact-inner">
         <h2 class="section-title">Contact</h2>
         <p class="contact-lead">I am always happy to discuss research, collaborations, or questions about my work.</p>
         <ul class="contact-list">
@@ -48,9 +76,6 @@
     </section>
   </main>
 
-  <footer>
-    <p>Luca Kämmer &copy; 2025</p>
-  </footer>
-
+</div>
 </body>
 </html>
