@@ -187,8 +187,8 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
+  width: 54px;
+  height: 54px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--bg-surface);
@@ -204,8 +204,8 @@ h1, h2, h3, h4 {
 }
 
 .sidebar-icon-link img {
-  width: 36px;
-  height: 36px;
+  width: 27px;
+  height: 27px;
   object-fit: contain;
   display: block;
   opacity: 0.7;
