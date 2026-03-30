@@ -42,10 +42,15 @@
     <div class="sidebar-divider"></div>
 
     <div class="sidebar-links">
-      <a href="mailto:lucakaemmer@gmx.de" class="sidebar-link">Email</a>
-      <a href="https://scholar.google.com/citations?user=UzZ-Sy4AAAAJ&hl=en" class="sidebar-link" target="_blank" rel="noopener">Google Scholar</a>
-      <a href="https://bsky.app/profile/lucakaemmer.bsky.social" class="sidebar-link" target="_blank" rel="noopener">Bluesky</a>
-      <a href="CV_2025_LucaK%C3%A4mmer.pdf" class="sidebar-link sidebar-link--cta" download>Download CV</a>
+      <a href="mailto:lucakaemmer@gmx.de" class="sidebar-icon-link" title="Email">
+        <img src="icons/email.png" alt="Email">
+      </a>
+      <a href="https://scholar.google.com/citations?user=UzZ-Sy4AAAAJ&hl=en" class="sidebar-icon-link" target="_blank" rel="noopener" title="Google Scholar">
+        <img src="icons/scholar.png" alt="Google Scholar">
+      </a>
+      <a href="https://bsky.app/profile/lucakaemmer.bsky.social" class="sidebar-icon-link" target="_blank" rel="noopener" title="Bluesky">
+        <img src="icons/bluesky.png" alt="Bluesky">
+      </a>
     </div>
 
     <div class="sidebar-spacer"></div>
@@ -58,8 +63,21 @@
       <h2 class="section-title">Publications</h2>
 
       <div class="pub-group">
+        <h3 class="pub-group-title">Co-author Network</h3>
+        <div id="coauthor-graph"></div>
+      </div>
+
+      <div class="pub-group">
         <h3 class="pub-group-title">Journal Articles</h3>
         <ul class="pub-list">
+          <li class="pub-item">
+            <div class="pub-content">
+              <span class="pub-authors"><span class="pub-me">Kämmer, L.</span>, Kroell, L. M., Knapen, T., Rolfs, M., &amp; Hebart, M. N.</span>
+              <span class="pub-year">(2026).</span>
+              <span class="pub-title">Feedback of peripheral saccade targets to early foveal cortex.</span>
+              <span class="pub-venue"><em>eLife</em>, 14: RP107053.</span>
+            </div>
+          </li>
           <li class="pub-item">
             <div class="pub-content">
               <span class="pub-authors">Kreyenmeier, P., <span class="pub-me">Kaemmer, L.</span>, Fooken, J., &amp; Spering, M.</span>
@@ -72,21 +90,25 @@
       </div>
 
       <div class="pub-group">
-        <h3 class="pub-group-title">In Preparation</h3>
+        <h3 class="pub-group-title">Conference Contributions</h3>
         <ul class="pub-list">
           <li class="pub-item">
             <div class="pub-content">
-              <span class="pub-authors"><span class="pub-me">Kämmer, L.</span>, Kroell, L., Knapen, T., Rolfs, M., &amp; Hebart, M.</span>
-              <span class="pub-year">(in preparation).</span>
-              <span class="pub-title">Decoding peripheral saccade targets from foveal retinotopic cortex.</span>
+              <span class="pub-authors"><span class="pub-me">Kämmer, L.</span>, Kroner, A., &amp; Hebart, M.</span>
+              <span class="pub-year">(2025).</span>
+              <span class="pub-title">Interpretable prediction of human fixations from behavior-derived representational dimensions.</span>
+              <span class="pub-note">CCNeuro 2025</span>
             </div>
           </li>
-        </ul>
-      </div>
-
-      <div class="pub-group">
-        <h3 class="pub-group-title">Conference Contributions</h3>
-        <ul class="pub-list">
+          <li class="pub-item">
+            <div class="pub-content">
+              <span class="pub-authors"><span class="pub-me">Kaemmer, L.</span>, Kroell, L. M., Knapen, T., Rolfs, M., &amp; Hebart, M. N.</span>
+              <span class="pub-year">(2025).</span>
+              <span class="pub-title">Decoding foveal feedback of saccade targets from early visual cortex.</span>
+              <span class="pub-venue"><em>Journal of Vision</em>, 25(9): 2690–2690.</span>
+              <span class="pub-note">VSS 2025</span>
+            </div>
+          </li>
           <li class="pub-item">
             <div class="pub-content">
               <span class="pub-authors">Kreyenmeier, P., <span class="pub-me">Kaemmer, L.</span>, Fooken, J., &amp; Spering, M.</span>
@@ -105,10 +127,6 @@
         </ul>
       </div>
 
-      <div class="pub-group">
-        <h3 class="pub-group-title">Co-author Network</h3>
-        <div id="coauthor-graph"></div>
-      </div>
 
     </section>
   </main>

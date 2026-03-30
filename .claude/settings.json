@@ -6,7 +6,11 @@
       "WebFetch(domain:scholar.google.com)",
       "WebFetch(domain:bsky.app)",
       "Bash(git -C /Users/kaemmer/Documents/Academia/website/Lucakaemmer.github.io log --oneline -10)",
-      "WebFetch(domain:visjs.github.io)"
+      "WebFetch(domain:visjs.github.io)",
+      "WebFetch(domain:elifesciences.org)",
+      "WebFetch(domain:2025.ccneuro.org)",
+      "WebFetch(domain:jov.arvojournals.org)",
+      "WebFetch(domain:doi.org)"
     ]
   }
 }

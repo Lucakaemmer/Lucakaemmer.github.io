@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
       { id: 4, label: 'Kroell L.',       size: 12, ...coauthorStyle },
       { id: 5, label: 'Knapen T.',       size: 12, ...coauthorStyle },
       { id: 6, label: 'Rolfs M.',        size: 16, ...coauthorStyle },
-      { id: 7, label: 'Hebart M.',       size: 18, ...coauthorStyle }
+      { id: 7, label: 'Hebart M.',       size: 18, ...coauthorStyle },
+      { id: 8, label: 'Kroner A.',       size: 12, ...coauthorStyle }
     ]);
 
     const edgeDefaults = {
@@ -47,22 +48,38 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const edges = new vis.DataSet([
-      // Luca — co-author edges (solid, thicker = more shared work)
-      { from: 0, to: 7, width: 2.5, ...edgeDefaults },  // Hebart: supervisor
-      { from: 0, to: 6, width: 2,   ...edgeDefaults },  // Rolfs: close collaborator
-      { from: 0, to: 1, width: 2,   ...edgeDefaults },  // Kreyenmeier: 2 shared pubs
-      { from: 0, to: 2, width: 1.5, ...edgeDefaults },  // Fooken
-      { from: 0, to: 3, width: 1.5, ...edgeDefaults },  // Spering
-      { from: 0, to: 4, width: 1,   ...edgeDefaults },  // Kroell
-      { from: 0, to: 5, width: 1,   ...edgeDefaults },  // Knapen
+      // Luca — co-author edges (solid, width = number of shared papers)
+      // Hebart: eLife 2026, CCNeuro 2025, VSS 2025 = 3 papers
+      { from: 0, to: 7, width: 3,   ...edgeDefaults },
+      // Rolfs: eLife 2026, VSS 2025 = 2 papers
+      { from: 0, to: 6, width: 2,   ...edgeDefaults },
+      // Kroell: eLife 2026, VSS 2025 = 2 papers
+      { from: 0, to: 4, width: 2,   ...edgeDefaults },
+      // Knapen: eLife 2026, VSS 2025 = 2 papers
+      { from: 0, to: 5, width: 2,   ...edgeDefaults },
+      // Kreyenmeier: eNeuro 2022, VSS 2021 = 2 papers
+      { from: 0, to: 1, width: 2,   ...edgeDefaults },
+      // Fooken: eNeuro 2022, VSS 2021 = 2 papers
+      { from: 0, to: 2, width: 2,   ...edgeDefaults },
+      // Spering: eNeuro 2022, VSS 2021 = 2 papers
+      { from: 0, to: 3, width: 2,   ...edgeDefaults },
+      // Kroner: CCNeuro 2025 = 1 paper
+      { from: 0, to: 8, width: 1,   ...edgeDefaults },
 
-      // Inter-co-author edges (dashed, lighter)
+      // Inter-co-author edges (dashed) — only where they share a paper with Luca
+      // eNeuro 2022 + VSS 2021: Kreyenmeier, Fooken, Spering all co-authors
       { from: 1, to: 2, dashes: true, width: 0.8, ...edgeDefaults },
       { from: 1, to: 3, dashes: true, width: 0.8, ...edgeDefaults },
       { from: 2, to: 3, dashes: true, width: 0.8, ...edgeDefaults },
+      // eLife 2026 + VSS 2025: Kroell, Knapen, Rolfs, Hebart all co-authors
+      { from: 4, to: 5, dashes: true, width: 0.8, ...edgeDefaults },
       { from: 4, to: 6, dashes: true, width: 0.8, ...edgeDefaults },
+      { from: 4, to: 7, dashes: true, width: 0.8, ...edgeDefaults },
       { from: 5, to: 6, dashes: true, width: 0.8, ...edgeDefaults },
-      { from: 6, to: 7, dashes: true, width: 1,   ...edgeDefaults }
+      { from: 5, to: 7, dashes: true, width: 0.8, ...edgeDefaults },
+      { from: 6, to: 7, dashes: true, width: 0.8, ...edgeDefaults },
+      // CCNeuro 2025: Kroner, Hebart co-authors
+      { from: 7, to: 8, dashes: true, width: 0.8, ...edgeDefaults }
     ]);
 
     const options = {
