@@ -378,14 +378,30 @@ h1, h2, h3, h4 {
 }
 
 .pub-group-title {
-  font-size: 1rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-md);
   padding-left: var(--space-sm);
   border-left: 3px solid var(--accent-dim);
+}
+
+.pub-year-group {
+  margin-bottom: var(--space-lg);
+}
+
+.pub-year-group:last-child {
+  margin-bottom: 0;
+}
+
+.pub-year-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  margin-bottom: 0.6rem;
 }
 
 .pub-list {
