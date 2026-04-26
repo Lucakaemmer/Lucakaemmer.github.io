@@ -27,6 +27,53 @@
 }
 
 /* ============================================================
+   Light mode overrides
+   ============================================================ */
+html.light {
+  --bg-base:        #ffffff;
+  --bg-surface:     #f6f8fa;
+  --bg-hover:       #eaeef2;
+  --border:         #d0d7de;
+  --text-primary:   #1f2328;
+  --text-secondary: #57606a;
+  --text-muted:     #848d97;
+  --accent:         #0969da;
+  --accent-dim:     #0550ae;
+}
+
+/* ============================================================
+   Theme toggle button
+   ============================================================ */
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  padding: 0;
+}
+
+#theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.icon-moon { display: none; }
+html.light .icon-sun  { display: none; }
+html.light .icon-moon { display: block; }
+
+/* ============================================================
    Reset & Base
    ============================================================ */
 *, *::before, *::after {
@@ -311,7 +358,7 @@ h1, h2, h3, h4 {
 
 #coauthor-graph {
   width: 100%;
-  height: 360px;
+  height: 460px;
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);

@@ -94,10 +94,10 @@ document.addEventListener('DOMContentLoaded', function () {
       physics: {
         enabled: true,
         barnesHut: {
-          gravitationalConstant: -6000,
-          centralGravity: 0.35,
-          springLength: 130,
-          springConstant: 0.04,
+          gravitationalConstant: -4000,
+          centralGravity: 0.6,
+          springLength: 80,
+          springConstant: 0.06,
           damping: 0.12,
           avoidOverlap: 0.3
         },
