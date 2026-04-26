@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             highlight:  { background: light ? '#1a7fe8' : '#3d6ab8', border: light ? '#0969da' : '#6aa3ff' },
             hover:      { background: light ? '#1a7fe8' : '#3d6ab8', border: light ? '#0969da' : '#6aa3ff' }
           },
-          font: { color: '#ffffff', size: 14, face: 'Inter, sans-serif', bold: true }
+          font: { color: light ? '#1f2328' : '#ffffff', size: 14, face: 'Inter, sans-serif', bold: true }
         },
         edge: {
           color:     light ? '#9bbde0' : '#21262d',
