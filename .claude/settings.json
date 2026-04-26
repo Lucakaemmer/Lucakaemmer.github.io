@@ -10,7 +10,11 @@
       "WebFetch(domain:elifesciences.org)",
       "WebFetch(domain:2025.ccneuro.org)",
       "WebFetch(domain:jov.arvojournals.org)",
-      "WebFetch(domain:doi.org)"
+      "WebFetch(domain:doi.org)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git checkout *)"
     ]
   }
 }
