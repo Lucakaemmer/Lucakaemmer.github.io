@@ -45,7 +45,7 @@ html.light {
    Theme toggle button
    ============================================================ */
 #theme-toggle {
-  position: fixed;
+  position: absolute;
   top: 1rem;
   right: 1rem;
   z-index: 100;
@@ -119,6 +119,7 @@ h1, h2, h3, h4 {
   margin: 0 auto;
   border-left: 1px solid var(--border);
   border-right: 1px solid var(--border);
+  position: relative;
 }
 
 /* ============================================================
@@ -377,9 +378,9 @@ h1, h2, h3, h4 {
 }
 
 .pub-group-title {
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-md);

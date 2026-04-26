@@ -7,79 +7,72 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (container && typeof vis !== 'undefined') {
 
-    const coauthorStyle = {
-      color: {
-        background: '#161b22',
-        border: '#21262d',
-        highlight: { background: '#1c2128', border: '#4f8ef7' },
-        hover:      { background: '#1c2128', border: '#4f8ef7' }
-      },
-      font: { color: '#8b949e', size: 12, face: 'Inter, sans-serif' },
-      shape: 'dot'
-    };
+    function buildColors() {
+      const light = document.documentElement.classList.contains('light');
+      return {
+        coauthor: {
+          color: {
+            background: light ? '#dde8f5' : '#161b22',
+            border:     light ? '#9bbde0' : '#21262d',
+            highlight:  { background: light ? '#c8daf0' : '#1c2128', border: light ? '#0969da' : '#4f8ef7' },
+            hover:      { background: light ? '#c8daf0' : '#1c2128', border: light ? '#0969da' : '#4f8ef7' }
+          },
+          font: { color: light ? '#1f2328' : '#8b949e', size: 12, face: 'Inter, sans-serif' }
+        },
+        luca: {
+          color: {
+            background: light ? '#0969da' : '#2d5aa8',
+            border:     light ? '#0550ae' : '#4f8ef7',
+            highlight:  { background: light ? '#1a7fe8' : '#3d6ab8', border: light ? '#0969da' : '#6aa3ff' },
+            hover:      { background: light ? '#1a7fe8' : '#3d6ab8', border: light ? '#0969da' : '#6aa3ff' }
+          },
+          font: { color: '#ffffff', size: 14, face: 'Inter, sans-serif', bold: true }
+        },
+        edge: {
+          color:     light ? '#9bbde0' : '#21262d',
+          hover:     light ? '#0969da' : '#4f8ef7',
+          highlight: light ? '#0969da' : '#4f8ef7'
+        }
+      };
+    }
+
+    const c = buildColors();
 
     const nodes = new vis.DataSet([
-      {
-        id: 0,
-        label: 'Luca Kämmer',
-        size: 28,
-        color: {
-          background: '#2d5aa8',
-          border: '#4f8ef7',
-          highlight: { background: '#3d6ab8', border: '#6aa3ff' },
-          hover:      { background: '#3d6ab8', border: '#6aa3ff' }
-        },
-        font: { color: '#e6edf3', size: 14, face: 'Inter, sans-serif', bold: true },
-        shape: 'dot'
-      },
-      { id: 1, label: 'Kreyenmeier P.', size: 18, ...coauthorStyle },
-      { id: 2, label: 'Fooken J.',       size: 14, ...coauthorStyle },
-      { id: 3, label: 'Spering M.',      size: 14, ...coauthorStyle },
-      { id: 4, label: 'Kroell L.',       size: 12, ...coauthorStyle },
-      { id: 5, label: 'Knapen T.',       size: 12, ...coauthorStyle },
-      { id: 6, label: 'Rolfs M.',        size: 16, ...coauthorStyle },
-      { id: 7, label: 'Hebart M.',       size: 18, ...coauthorStyle },
-      { id: 8, label: 'Kroner A.',       size: 12, ...coauthorStyle }
+      { id: 0, label: 'Luca Kämmer',    size: 28, shape: 'dot', color: c.luca.color,      font: c.luca.font },
+      { id: 1, label: 'Kreyenmeier P.', size: 18, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
+      { id: 2, label: 'Fooken J.',       size: 14, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
+      { id: 3, label: 'Spering M.',      size: 14, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
+      { id: 4, label: 'Kroell L.',       size: 12, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
+      { id: 5, label: 'Knapen T.',       size: 12, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
+      { id: 6, label: 'Rolfs M.',        size: 16, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
+      { id: 7, label: 'Hebart M.',       size: 18, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
+      { id: 8, label: 'Kroner A.',       size: 12, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font }
     ]);
 
-    const edgeDefaults = {
-      color: { color: '#21262d', hover: '#4f8ef7', highlight: '#4f8ef7', inherit: false },
-      smooth: { type: 'continuous' }
-    };
+    function edgeColor(ec) {
+      return { color: ec.color, hover: ec.hover, highlight: ec.highlight, inherit: false };
+    }
 
     const edges = new vis.DataSet([
-      // Luca — co-author edges (solid, width = number of shared papers)
-      // Hebart: eLife 2026, CCNeuro 2025, VSS 2025 = 3 papers
-      { from: 0, to: 7, width: 3,   ...edgeDefaults },
-      // Rolfs: eLife 2026, VSS 2025 = 2 papers
-      { from: 0, to: 6, width: 2,   ...edgeDefaults },
-      // Kroell: eLife 2026, VSS 2025 = 2 papers
-      { from: 0, to: 4, width: 2,   ...edgeDefaults },
-      // Knapen: eLife 2026, VSS 2025 = 2 papers
-      { from: 0, to: 5, width: 2,   ...edgeDefaults },
-      // Kreyenmeier: eNeuro 2022, VSS 2021 = 2 papers
-      { from: 0, to: 1, width: 2,   ...edgeDefaults },
-      // Fooken: eNeuro 2022, VSS 2021 = 2 papers
-      { from: 0, to: 2, width: 2,   ...edgeDefaults },
-      // Spering: eNeuro 2022, VSS 2021 = 2 papers
-      { from: 0, to: 3, width: 2,   ...edgeDefaults },
-      // Kroner: CCNeuro 2025 = 1 paper
-      { from: 0, to: 8, width: 1,   ...edgeDefaults },
-
-      // Inter-co-author edges (dashed) — only where they share a paper with Luca
-      // eNeuro 2022 + VSS 2021: Kreyenmeier, Fooken, Spering all co-authors
-      { from: 1, to: 2, dashes: true, width: 0.8, ...edgeDefaults },
-      { from: 1, to: 3, dashes: true, width: 0.8, ...edgeDefaults },
-      { from: 2, to: 3, dashes: true, width: 0.8, ...edgeDefaults },
-      // eLife 2026 + VSS 2025: Kroell, Knapen, Rolfs, Hebart all co-authors
-      { from: 4, to: 5, dashes: true, width: 0.8, ...edgeDefaults },
-      { from: 4, to: 6, dashes: true, width: 0.8, ...edgeDefaults },
-      { from: 4, to: 7, dashes: true, width: 0.8, ...edgeDefaults },
-      { from: 5, to: 6, dashes: true, width: 0.8, ...edgeDefaults },
-      { from: 5, to: 7, dashes: true, width: 0.8, ...edgeDefaults },
-      { from: 6, to: 7, dashes: true, width: 0.8, ...edgeDefaults },
-      // CCNeuro 2025: Kroner, Hebart co-authors
-      { from: 7, to: 8, dashes: true, width: 0.8, ...edgeDefaults }
+      { id: 'e0',  from: 0, to: 7, width: 3,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e1',  from: 0, to: 6, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e2',  from: 0, to: 4, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e3',  from: 0, to: 5, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e4',  from: 0, to: 1, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e5',  from: 0, to: 2, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e6',  from: 0, to: 3, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e7',  from: 0, to: 8, width: 1,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e8',  from: 1, to: 2, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e9',  from: 1, to: 3, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e10', from: 2, to: 3, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e11', from: 4, to: 5, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e12', from: 4, to: 6, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e13', from: 4, to: 7, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e14', from: 5, to: 6, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e15', from: 5, to: 7, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e16', from: 6, to: 7, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
+      { id: 'e17', from: 7, to: 8, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) }
     ]);
 
     const options = {
@@ -116,6 +109,26 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     new vis.Network(container, { nodes, edges }, options);
+
+    // Update node/edge colors when theme class changes
+    new MutationObserver(function () {
+      const nc = buildColors();
+      nodes.update([
+        { id: 0, color: nc.luca.color,     font: nc.luca.font },
+        { id: 1, color: nc.coauthor.color, font: nc.coauthor.font },
+        { id: 2, color: nc.coauthor.color, font: nc.coauthor.font },
+        { id: 3, color: nc.coauthor.color, font: nc.coauthor.font },
+        { id: 4, color: nc.coauthor.color, font: nc.coauthor.font },
+        { id: 5, color: nc.coauthor.color, font: nc.coauthor.font },
+        { id: 6, color: nc.coauthor.color, font: nc.coauthor.font },
+        { id: 7, color: nc.coauthor.color, font: nc.coauthor.font },
+        { id: 8, color: nc.coauthor.color, font: nc.coauthor.font }
+      ]);
+      const ec = edgeColor(nc.edge);
+      edges.update(edges.getIds().map(function (id) {
+        return { id: id, color: ec };
+      }));
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   }
 
 });
