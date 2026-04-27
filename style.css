@@ -424,6 +424,54 @@ h1, h2, h3, h4 {
 }
 
 /* ============================================================
+   Affiliations
+   ============================================================ */
+.affil-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.affil-grid--primary {
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 0.75rem;
+}
+
+.affil-grid--secondary {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.affil-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.75rem;
+  aspect-ratio: 3 / 2;
+}
+
+.affil-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.affil-grid--secondary .affil-box {
+  padding: 0.75rem 0.5rem;
+}
+
+.affil-box--dim img {
+  opacity: 0.45;
+}
+
+@media (max-width: 768px) {
+  .affil-grid--primary  { grid-template-columns: repeat(2, 1fr); }
+  .affil-grid--secondary { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================================
    Publications
    ============================================================ */
 .pub-group {
