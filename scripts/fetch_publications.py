@@ -31,6 +31,7 @@ HEADERS = {
 REPO_ROOT = Path(__file__).parent.parent
 HTML_FILE = REPO_ROOT / "publications.html"
 JSON_FILE = REPO_ROOT / "scripts" / "publications.json"
+COAUTHOR_JSON = REPO_ROOT / "scripts" / "coauthors.json"
 
 # Name variants to highlight with pub-me class
 NAME_VARIANTS = [
@@ -49,8 +50,46 @@ CONFERENCE_KEYWORDS = [
 ]
 
 
+LUCA_PAT = re.compile(r"K[äa]mmer|Kaemmer", re.IGNORECASE)
+
+
 def normalize(title: str) -> str:
     return re.sub(r"[^\w\s]", "", title.lower()).strip()
+
+
+def _author_label(token: str) -> str | None:
+    """Parse one author token into 'LastName F.' format; returns None for Luca or unrecognised."""
+    t = token.strip().strip(".,")
+    if not t or LUCA_PAT.search(t):
+        return None
+    # "LM Kroell" / "T Knapen" / "MN Hebart" — initials then last name (Scholar list format)
+    m = re.match(r"^([A-Z]{1,3})\.?\s+(\S.*)$", t)
+    if m:
+        return f"{m.group(2).strip()} {m.group(1)[0]}."
+    # "Kroell, L. M." / "Kroell, L" — last name then initials
+    m = re.match(r"^(\S[^,]*),\s*([A-Z])\.?", t)
+    if m:
+        return f"{m.group(1).strip()} {m.group(2)}."
+    return None
+
+
+def extract_coauthors(authors_str: str) -> list[str]:
+    """Return deduplicated 'LastName F.' labels for all co-authors except Luca."""
+    s = re.sub(r"\s*&\s*", ", ", authors_str)
+    # Scholar list format: "LM Kroell, T Knapen, ..." — simple comma split works
+    if re.search(r"^[A-Z]{1,3}\s+\S", s):
+        tokens = [t.strip() for t in s.split(",")]
+    else:
+        # "LastName, F., LastName, F." — split before each new last name
+        tokens = re.split(r",\s*(?=[A-Z][a-z])", s)
+    seen: set[str] = set()
+    result = []
+    for tok in tokens:
+        label = _author_label(tok)
+        if label and label not in seen:
+            seen.add(label)
+            result.append(label)
+    return result
 
 
 def is_conference(venue: str) -> bool:
@@ -203,6 +242,12 @@ def main():
     data = json.loads(JSON_FILE.read_text())
     known = set(data["known_titles"])
 
+    coauthor_data = json.loads(COAUTHOR_JSON.read_text())
+    coauthors_dict: dict[str, int] = coauthor_data["coauthors"]
+    pairs_set: set[tuple[str, str]] = {
+        tuple(sorted(p)) for p in coauthor_data["coauthor_pairs"]  # type: ignore[misc]
+    }
+
     pubs = fetch_scholar()
     if not pubs:
         sys.exit(0)
@@ -243,6 +288,14 @@ def main():
             conf_content = insert_into_section(conf_content, year, item_html)
             section_label = "Conference Contributions"
 
+        # Update co-author network data
+        coauthors = extract_coauthors(pub["authors"])
+        for name in coauthors:
+            coauthors_dict[name] = coauthors_dict.get(name, 0) + 1
+        for i in range(len(coauthors)):
+            for j in range(i + 1, len(coauthors)):
+                pairs_set.add(tuple(sorted([coauthors[i], coauthors[j]])))  # type: ignore[arg-type]
+
         print(f"Added [{section_label} {year}]: {pub['title']}")
         new_titles.append(norm)
         changed = True
@@ -273,6 +326,10 @@ def main():
 
     data["known_titles"].extend(new_titles)
     JSON_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+
+    coauthor_data["coauthors"] = coauthors_dict
+    coauthor_data["coauthor_pairs"] = [list(p) for p in sorted(pairs_set)]
+    COAUTHOR_JSON.write_text(json.dumps(coauthor_data, indent=2, ensure_ascii=False))
 
     print(f"Done — added {len(new_titles)} new publication(s).")
 

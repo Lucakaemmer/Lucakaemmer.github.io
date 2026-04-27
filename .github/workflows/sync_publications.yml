@@ -29,7 +29,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git diff --quiet && echo "No new publications — nothing to commit." || (
-            git add publications.html scripts/publications.json &&
+            git add publications.html scripts/publications.json scripts/coauthors.json &&
             git commit -m "Auto-sync publications from Google Scholar" &&
             git push
           )

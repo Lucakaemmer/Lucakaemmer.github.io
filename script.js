@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   // ============================================================
-  // Co-author Network (vis.js)
+  // Co-author Network (vis.js) — data loaded from coauthors.json
   // ============================================================
   const container = document.getElementById('coauthor-graph');
 
@@ -36,46 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
       };
     }
 
-    const c = buildColors();
-
-    const nodes = new vis.DataSet([
-      { id: 0, label: 'Luca Kämmer',    size: 28, shape: 'dot', color: c.luca.color,      font: c.luca.font },
-      { id: 1, label: 'Kreyenmeier P.', size: 18, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
-      { id: 2, label: 'Fooken J.',       size: 14, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
-      { id: 3, label: 'Spering M.',      size: 14, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
-      { id: 4, label: 'Kroell L.',       size: 12, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
-      { id: 5, label: 'Knapen T.',       size: 12, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
-      { id: 6, label: 'Rolfs M.',        size: 16, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
-      { id: 7, label: 'Hebart M.',       size: 18, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font },
-      { id: 8, label: 'Kroner A.',       size: 12, shape: 'dot', color: c.coauthor.color,  font: c.coauthor.font }
-    ]);
-
     function edgeColor(ec) {
       return { color: ec.color, hover: ec.hover, highlight: ec.highlight, inherit: false };
     }
 
-    const edges = new vis.DataSet([
-      { id: 'e0',  from: 0, to: 7, width: 3,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e1',  from: 0, to: 6, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e2',  from: 0, to: 4, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e3',  from: 0, to: 5, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e4',  from: 0, to: 1, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e5',  from: 0, to: 2, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e6',  from: 0, to: 3, width: 2,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e7',  from: 0, to: 8, width: 1,   smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e8',  from: 1, to: 2, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e9',  from: 1, to: 3, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e10', from: 2, to: 3, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e11', from: 4, to: 5, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e12', from: 4, to: 6, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e13', from: 4, to: 7, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e14', from: 5, to: 6, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e15', from: 5, to: 7, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e16', from: 6, to: 7, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) },
-      { id: 'e17', from: 7, to: 8, dashes: true, width: 0.8, smooth: { type: 'continuous' }, color: edgeColor(c.edge) }
-    ]);
-
-    const options = {
+    const networkOptions = {
       nodes: {
         shape: 'dot',
         borderWidth: 2,
@@ -108,27 +73,73 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
 
-    new vis.Network(container, { nodes, edges }, options);
+    fetch('scripts/coauthors.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        const c = buildColors();
+        const coauthorNames = Object.keys(data.coauthors);
+        const nameToId = {};
 
-    // Update node/edge colors when theme class changes
-    new MutationObserver(function () {
-      const nc = buildColors();
-      nodes.update([
-        { id: 0, color: nc.luca.color,     font: nc.luca.font },
-        { id: 1, color: nc.coauthor.color, font: nc.coauthor.font },
-        { id: 2, color: nc.coauthor.color, font: nc.coauthor.font },
-        { id: 3, color: nc.coauthor.color, font: nc.coauthor.font },
-        { id: 4, color: nc.coauthor.color, font: nc.coauthor.font },
-        { id: 5, color: nc.coauthor.color, font: nc.coauthor.font },
-        { id: 6, color: nc.coauthor.color, font: nc.coauthor.font },
-        { id: 7, color: nc.coauthor.color, font: nc.coauthor.font },
-        { id: 8, color: nc.coauthor.color, font: nc.coauthor.font }
-      ]);
-      const ec = edgeColor(nc.edge);
-      edges.update(edges.getIds().map(function (id) {
-        return { id: id, color: ec };
-      }));
-    }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        const nodeList = [
+          { id: 0, label: 'Luca Kämmer', size: 28, shape: 'dot', color: c.luca.color, font: c.luca.font }
+        ];
+        coauthorNames.forEach(function (name, i) {
+          const id = i + 1;
+          nameToId[name] = id;
+          const count = data.coauthors[name];
+          nodeList.push({
+            id: id,
+            label: name,
+            size: Math.max(12, Math.min(24, 10 + count * 2)),
+            shape: 'dot',
+            color: c.coauthor.color,
+            font: c.coauthor.font
+          });
+        });
+
+        const edgeList = [];
+        coauthorNames.forEach(function (name) {
+          const count = data.coauthors[name];
+          edgeList.push({
+            from: 0,
+            to: nameToId[name],
+            width: Math.min(4, count),
+            smooth: { type: 'continuous' },
+            color: edgeColor(c.edge)
+          });
+        });
+        data.coauthor_pairs.forEach(function (pair) {
+          const id1 = nameToId[pair[0]];
+          const id2 = nameToId[pair[1]];
+          if (id1 !== undefined && id2 !== undefined) {
+            edgeList.push({
+              from: id1,
+              to: id2,
+              dashes: true,
+              width: 0.8,
+              smooth: { type: 'continuous' },
+              color: edgeColor(c.edge)
+            });
+          }
+        });
+
+        const nodes = new vis.DataSet(nodeList);
+        const edges = new vis.DataSet(edgeList);
+        new vis.Network(container, { nodes, edges }, networkOptions);
+
+        new MutationObserver(function () {
+          const nc = buildColors();
+          const updates = [{ id: 0, color: nc.luca.color, font: nc.luca.font }];
+          coauthorNames.forEach(function (name) {
+            updates.push({ id: nameToId[name], color: nc.coauthor.color, font: nc.coauthor.font });
+          });
+          nodes.update(updates);
+          const ec = edgeColor(nc.edge);
+          edges.update(edges.getIds().map(function (id) {
+            return { id: id, color: ec };
+          }));
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+      });
   }
 
 });
