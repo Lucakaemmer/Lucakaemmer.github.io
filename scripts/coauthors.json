@@ -1,13 +1,16 @@
 {
   "coauthors": {
-    "Hebart M.": 4,
+    "Hebart M.": 5,
     "Kroell L.": 3,
     "Knapen T.": 3,
     "Rolfs M.": 3,
     "Kreyenmeier P.": 2,
     "Fooken J.": 2,
     "Spering M.": 2,
-    "Kroner A.": 1
+    "Kroner A.": 1,
+    "Amme C.": 1,
+    "Sulewski P.": 1,
+    "Kietzmann T.": 1
   },
   "coauthor_pairs": [
     ["Fooken J.", "Kreyenmeier P."],
@@ -16,9 +19,15 @@
     ["Hebart M.", "Kroell L."],
     ["Hebart M.", "Kroner A."],
     ["Hebart M.", "Rolfs M."],
+    ["Hebart M.", "Amme C."],
+    ["Hebart M.", "Sulewski P."],
+    ["Hebart M.", "Kietzmann T."],
     ["Knapen T.", "Kroell L."],
     ["Knapen T.", "Rolfs M."],
     ["Kroell L.", "Rolfs M."],
-    ["Kreyenmeier P.", "Spering M."]
+    ["Kreyenmeier P.", "Spering M."],
+    ["Amme C.", "Sulewski P."],
+    ["Amme C.", "Kietzmann T."],
+    ["Sulewski P.", "Kietzmann T."]
   ]
 }
