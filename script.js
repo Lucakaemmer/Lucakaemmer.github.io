@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', function () {
       return {
         coauthor: {
           color: {
-            background: light ? '#dde8f5' : '#161b22',
-            border:     light ? '#9bbde0' : '#21262d',
-            highlight:  { background: light ? '#c8daf0' : '#1c2128', border: light ? '#0969da' : '#4f8ef7' },
-            hover:      { background: light ? '#c8daf0' : '#1c2128', border: light ? '#0969da' : '#4f8ef7' }
+            background: light ? '#dde8f5' : '#2d333b',
+            border:     light ? '#9bbde0' : '#4d5566',
+            highlight:  { background: light ? '#c8daf0' : '#373e47', border: light ? '#0969da' : '#4f8ef7' },
+            hover:      { background: light ? '#c8daf0' : '#373e47', border: light ? '#0969da' : '#4f8ef7' }
           },
-          font: { color: light ? '#1f2328' : '#8b949e', size: 12, face: 'Inter, sans-serif' }
+          font: { color: light ? '#1f2328' : '#c9d1d9', size: 12, face: 'Inter, sans-serif' }
         },
         luca: {
           color: {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
           font: { color: light ? '#1f2328' : '#ffffff', size: 14, face: 'Inter, sans-serif', bold: true }
         },
         edge: {
-          color:     light ? '#9bbde0' : '#21262d',
+          color:     light ? '#9bbde0' : '#4d5566',
           hover:     light ? '#0969da' : '#4f8ef7',
           highlight: light ? '#0969da' : '#4f8ef7'
         }
