@@ -10,24 +10,100 @@
     "Kroner A.": 1,
     "Amme C.": 1,
     "Sulewski P.": 1,
-    "Kietzmann T.": 1
+    "Kietzmann T.": 1,
+    "Grundei M.": 1,
+    "Schmidt T.": 1,
+    "Nierhaus T.": 1,
+    "Blankenburg F.": 1
   },
   "coauthor_pairs": [
-    ["Fooken J.", "Kreyenmeier P."],
-    ["Fooken J.", "Spering M."],
-    ["Hebart M.", "Knapen T."],
-    ["Hebart M.", "Kroell L."],
-    ["Hebart M.", "Kroner A."],
-    ["Hebart M.", "Rolfs M."],
-    ["Hebart M.", "Amme C."],
-    ["Hebart M.", "Sulewski P."],
-    ["Hebart M.", "Kietzmann T."],
-    ["Knapen T.", "Kroell L."],
-    ["Knapen T.", "Rolfs M."],
-    ["Kroell L.", "Rolfs M."],
-    ["Kreyenmeier P.", "Spering M."],
-    ["Amme C.", "Sulewski P."],
-    ["Amme C.", "Kietzmann T."],
-    ["Sulewski P.", "Kietzmann T."]
+    [
+      "Amme C.",
+      "Hebart M."
+    ],
+    [
+      "Amme C.",
+      "Kietzmann T."
+    ],
+    [
+      "Amme C.",
+      "Sulewski P."
+    ],
+    [
+      "Blankenburg F.",
+      "Grundei M."
+    ],
+    [
+      "Blankenburg F.",
+      "Nierhaus T."
+    ],
+    [
+      "Blankenburg F.",
+      "Schmidt T."
+    ],
+    [
+      "Fooken J.",
+      "Kreyenmeier P."
+    ],
+    [
+      "Fooken J.",
+      "Spering M."
+    ],
+    [
+      "Grundei M.",
+      "Nierhaus T."
+    ],
+    [
+      "Grundei M.",
+      "Schmidt T."
+    ],
+    [
+      "Hebart M.",
+      "Kietzmann T."
+    ],
+    [
+      "Hebart M.",
+      "Knapen T."
+    ],
+    [
+      "Hebart M.",
+      "Kroell L."
+    ],
+    [
+      "Hebart M.",
+      "Kroner A."
+    ],
+    [
+      "Hebart M.",
+      "Rolfs M."
+    ],
+    [
+      "Hebart M.",
+      "Sulewski P."
+    ],
+    [
+      "Kietzmann T.",
+      "Sulewski P."
+    ],
+    [
+      "Knapen T.",
+      "Kroell L."
+    ],
+    [
+      "Knapen T.",
+      "Rolfs M."
+    ],
+    [
+      "Kreyenmeier P.",
+      "Spering M."
+    ],
+    [
+      "Kroell L.",
+      "Rolfs M."
+    ],
+    [
+      "Nierhaus T.",
+      "Schmidt T."
+    ]
   ]
 }
